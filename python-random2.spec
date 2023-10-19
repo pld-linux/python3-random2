@@ -3,7 +3,8 @@
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
 
-Summary:	Python 3 compatible Pytohn 2 `random` Module
+Summary:	Python 3 compatible Python 2.7 "random" Module
+Summary(pl.UTF-8):	Moduł "random" z Pythona 2.7 zgodny z Pythonem 3
 Name:		python-random2
 Version:	1.0.1
 Release:	1
@@ -37,8 +38,18 @@ even with the same seed you get different sequences in Python 2 and 3.
 Note that several high-level functions such as randint() and choice()
 use randrange().
 
+%description -l pl.UTF-8
+Ten pakiet dostarcza wersję modułu random z Pythona 2.7 sportowaną do
+Pythona 3, a także zbackportowaną, aby działała w Pythonie 2.6.
+
+W Pythonie 3 implementacja randrange() została zmieniona, więc nawet z
+tym samym zarodkiem otrzymamy inne sekwencje w Pythonie 2 i 3. Należy
+zauważyć, że kilka funkcji wysokopoziomowych, takich jak randint() i
+choice(), wykorzystuje randrange().
+
 %package -n python3-random2
-Summary:	Python 3 compatible Pytohn 2 `random` Module
+Summary:	Python 3 compatible Python 2.7 "random" Module
+Summary(pl.UTF-8):	Moduł "random" z Pythona 2.7 zgodny z Pythonem 3
 Group:		Libraries/Python
 Requires:	python3-modules >= 1:3.3
 
@@ -50,6 +61,15 @@ In Python 3, the implementation of randrange() was changed, so that
 even with the same seed you get different sequences in Python 2 and 3.
 Note that several high-level functions such as randint() and choice()
 use randrange().
+
+%description -n python3-random2 -l pl.UTF-8
+Ten pakiet dostarcza wersję modułu random z Pythona 2.7 sportowaną do
+Pythona 3, a także zbackportowaną, aby działała w Pythonie 2.6.
+
+W Pythonie 3 implementacja randrange() została zmieniona, więc nawet z
+tym samym zarodkiem otrzymamy inne sekwencje w Pythonie 2 i 3. Należy
+zauważyć, że kilka funkcji wysokopoziomowych, takich jak randint() i
+choice(), wykorzystuje randrange().
 
 %prep
 %setup -q -n random2-%{version}
@@ -92,6 +112,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGES.txt README.txt
 %{py3_sitescriptdir}/random2.py
-%{py3_sitescriptdir}/__pycache__/random2*.pyc
+%{py3_sitescriptdir}/__pycache__/random2.cpython-*.pyc
 %{py3_sitescriptdir}/random2-%{version}-py*.egg-info
 %endif
