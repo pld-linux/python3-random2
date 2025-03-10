@@ -7,7 +7,7 @@ Summary:	Python 3 compatible Python 2.7 "random" Module
 Summary(pl.UTF-8):	Moduł "random" z Pythona 2.7 zgodny z Pythonem 3
 Name:		python-random2
 Version:	1.0.1
-Release:	1
+Release:	2
 License:	PSF
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/random2/
